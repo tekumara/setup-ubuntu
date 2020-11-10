@@ -7,5 +7,6 @@ Includes:
 ## Usage
 
 ```
+apt-get update && apt-get install -y sudo curl
 curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | sudo bash
 ```
