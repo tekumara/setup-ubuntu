@@ -9,9 +9,9 @@ if ! curl --progress-bar --fail -L "$URL" -o "/tmp/setup-ubuntu.tar.gz"; then
     exit 1
 fi
 
-tar -xvf /tmp/setup-ubuntu.tar.gz -C /tmp
+tar -xvf /tmp/setup-ubuntu.tar.gz -C /tmp --strip-components=1
 
 set -x
 
-/tmp/setup-ubuntu/system.sh
-/tmp/setup-ubuntu/cuda.sh
+/tmp/install/system.sh
+/tmp/install/cuda.sh
