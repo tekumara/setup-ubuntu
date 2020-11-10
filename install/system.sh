@@ -14,5 +14,5 @@ apt-get -y -f upgrade
 # iputils-ping contains ping
 # gnupg2 & ca-certificates needed for repos
 apt-get install -y --no-install-recommends \
-    sysstat bsdmainutils jq net-tools iputils-ping curl \
+    sysstat bsdmainutils jq net-tools iputils-ping \
     gnupg2 ca-certificates software-properties-common
