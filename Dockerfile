@@ -15,3 +15,6 @@ ENV LANG=C.UTF-8
 # copy files one at a time to create indivual caching layers
 COPY install/system.sh /tmp/install/
 RUN sudo /tmp/install/system.sh
+
+COPY install/cuda.sh /tmp/install/
+RUN sudo /tmp/install/cuda.sh
