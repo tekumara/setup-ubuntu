@@ -11,4 +11,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y -f upgrade
 # bsdmainutils contains column
 # net-tools contains ifconfig
 # iputils-ping contains ping
-sudo apt-get install -y sysstat software-properties-common bsdmainutils jq net-tools iputils-ping
+# gnupg2 & ca-certificates needed for repos
+sudo apt-get install -y --no-install-recommends sysstat bsdmainutils jq net-tools iputils-ping curl \
+    gnupg2 ca-certificates software-properties-common 
