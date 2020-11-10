@@ -7,5 +7,5 @@ Includes:
 ## Usage
 
 ```
-curl -fsSL https://raw.githubusercontent.com/tekumra/setup-ubuntu/master/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | sudo bash
 ```

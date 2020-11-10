@@ -4,7 +4,7 @@ set -uoe pipefail
 
 mkdir -p "$INSTALL_DIR"
 
-URL="https://github.com/tekumara/setup-ubuntu/releases/latest/download/setup-ubuntu.tar.gz"
+URL="https://github.com/tekumara/setup-ubuntu/archive/0.1.0.tar.gz"
 
 if ! curl --progress-bar --fail -L "$URL" -o "/tmp/setup-ubuntu.tar.gz"; then
     echo "Download failed.  Check that the release/filename are correct."
