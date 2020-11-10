@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
 # setup sudo and ubuntu user with sudo rights and no password
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y sudo curl
 RUN adduser --disabled-password --gecos '' ubuntu && adduser ubuntu sudo
@@ -18,3 +19,6 @@ RUN sudo /tmp/install/system.sh
 
 COPY install/cuda.sh /tmp/install/
 RUN sudo /tmp/install/cuda.sh
+
+COPY install/python.sh /tmp/install/
+RUN sudo /tmp/install/python.sh

@@ -13,5 +13,6 @@ tar -xvf /tmp/setup-ubuntu.tar.gz -C /tmp --strip-components=1
 
 set -x
 
+export DEBIAN_FRONTEND=noninteractive
 /tmp/install/system.sh
 /tmp/install/cuda.sh
