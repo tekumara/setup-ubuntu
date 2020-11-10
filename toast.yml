@@ -1,0 +1,16 @@
+image: ubuntu:18.04
+tasks:
+  base:
+    command: |
+      export DEBIAN_FRONTEND=noninteractive
+      apt-get update && apt-get upgrade -y
+      apt-get install -y sudo curl
+      adduser --disabled-password --gecos '' ubuntu && adduser ubuntu sudo
+      echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+  install:
+    dependencies:
+      - base
+    input_paths:
+      - install.sh
+    command:
+      cat install.sh | sudo bash

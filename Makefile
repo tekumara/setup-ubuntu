@@ -14,3 +14,7 @@ build:
 ## run latest docker image
 run:
 	docker run --rm -it ubuntu-cuda:latest
+
+## test using toast
+test:
+	toast
