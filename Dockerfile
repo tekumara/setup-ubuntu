@@ -17,11 +17,12 @@ ENV LANG=C.UTF-8
 COPY install/system.sh /tmp/install/
 RUN sudo /tmp/install/system.sh
 
-COPY install/cuda.sh /tmp/install/
-RUN sudo /tmp/install/cuda.sh
+COPY install/docker.sh /tmp/install/
+RUN sudo /tmp/install/docker.sh
 
 COPY install/python.sh /tmp/install/
 RUN sudo /tmp/install/python.sh
 
-COPY install/docker.sh /tmp/install/
-RUN sudo /tmp/install/docker.sh
+COPY install/cuda.sh /tmp/install/
+RUN sudo /tmp/install/cuda.sh
+

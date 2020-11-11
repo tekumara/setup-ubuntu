@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # add deadsnakes ppa because it has the latest minor versions
-add-apt-repository ppa:deadsnakes/ppa
+add-apt-repository -y ppa:deadsnakes/ppa
 
 apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-venv
 

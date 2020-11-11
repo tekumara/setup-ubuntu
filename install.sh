@@ -40,7 +40,7 @@ else
 
     export DEBIAN_FRONTEND=noninteractive
     /tmp/install/system.sh
-    /tmp/install/cuda.sh
-    /tmp/install/python.sh
     /tmp/install/docker.sh
+    /tmp/install/python.sh
+    /tmp/install/cuda.sh
 fi

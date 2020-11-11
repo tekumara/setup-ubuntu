@@ -4,7 +4,7 @@ set -euo pipefail
 
 set -x
 
-## Equivalent to the nvidia/cuda:10.1-runtime-ubuntu18.04 docker image
+## Equivalent to the nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04 docker image
 
 ## 10.1-base-ubuntu18.04
 ## see https://gitlab.com/nvidia/container-images/cuda/-/blob/master/dist/10.1/ubuntu18.04-x86_64/base/Dockerfile
@@ -60,5 +60,16 @@ CUDNN_VERSION="7.6.5.32"
 apt-get update && apt-get install -y --no-install-recommends \
     libcudnn7=$CUDNN_VERSION-1+cuda10.1 \
     && apt-mark hold libcudnn7
+
+
+# install the Nvidia Container Toolkit to allow Docker to use GPUs
+curl -fsSL https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
+apt-get update
+
+apt-get install -y --no-install-recommends nvidia-container-toolkit
+
+systemctl restart docker
 
 rm -rf /var/lib/apt/lists/*
