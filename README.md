@@ -10,3 +10,9 @@ Includes:
 sudo apt-get update && sudo apt-get install -y sudo curl
 curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | sudo bash
 ```
+
+To download and extract the scripts without running them:
+
+```
+curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash -s -- --skip-install
+```

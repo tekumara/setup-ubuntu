@@ -12,5 +12,7 @@ ln -s /usr/bin/python3.7 /usr/local/bin/python3
 ln -s /usr/bin/python3.7 /usr/local/bin/python
 
 # install pip directly, rather than installing the deb package which depends on the older python3 package
-# use sudo to make sure it is installed into dist-packages (/usr/local/lib/python3.7/dist-packages/)
+# use sudo to make sure it is installed into dist-packages (ie: /usr/local/lib/python3.7/dist-packages/)
 curl -s https://bootstrap.pypa.io/get-pip.py | sudo -H /usr/bin/python3.7
+
+# TODO: remove _/usr/lib/python3/dist-packages_ from PYTHONPATH
