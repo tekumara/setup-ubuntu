@@ -42,5 +42,6 @@ else
     /tmp/install/system.sh
     /tmp/install/docker.sh
     /tmp/install/python.sh
+    /tmp/install/nvidia.sh
     /tmp/install/cuda.sh
 fi
