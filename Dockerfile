@@ -22,3 +22,6 @@ RUN sudo /tmp/install/cuda.sh
 
 COPY install/python.sh /tmp/install/
 RUN sudo /tmp/install/python.sh
+
+COPY install/docker.sh /tmp/install/
+RUN sudo /tmp/install/docker.sh

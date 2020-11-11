@@ -4,7 +4,6 @@ set -uoe pipefail
 
 INSTALL=true
 
-# Parse Flags
 parse_args() {
     while [[ $# -gt 0 ]]; do
         key="$1"
@@ -43,4 +42,5 @@ else
     /tmp/install/system.sh
     /tmp/install/cuda.sh
     /tmp/install/python.sh
+    /tmp/install/docker.sh
 fi

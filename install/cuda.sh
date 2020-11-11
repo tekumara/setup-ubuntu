@@ -4,6 +4,8 @@ set -euo pipefail
 
 set -x
 
+## Equivalent to the nvidia/cuda:10.1-runtime-ubuntu18.04 docker image
+
 ## 10.1-base-ubuntu18.04
 ## see https://gitlab.com/nvidia/container-images/cuda/-/blob/master/dist/10.1/ubuntu18.04-x86_64/base/Dockerfile
 
