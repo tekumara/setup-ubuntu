@@ -18,3 +18,7 @@ run:
 ## test using toast
 test:
 	toast
+
+## tag the current commit as latest
+tag:
+	git tag -f latest && git push --tags -f
