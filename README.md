@@ -16,3 +16,7 @@ To download and extract the scripts without running them:
 ```
 curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | sudo bash -s -- --skip-install
 ```
+
+## Development
+
+A Dockerfile is provided to test the scripts. run `make` to see options for building and running the Dockerfile. 

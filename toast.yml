@@ -13,4 +13,4 @@ tasks:
     input_paths:
       - install.sh
     command:
-      cat install.sh | sudo bash
+      cat install.sh | sudo bash -s -- --skip-install

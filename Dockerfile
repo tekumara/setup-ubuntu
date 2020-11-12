@@ -23,8 +23,11 @@ RUN sudo /tmp/install/docker.sh
 COPY install/python.sh /tmp/install/
 RUN sudo /tmp/install/python.sh
 
+## the nvidia kernel modules are needed on the host, not in the container, but we can test their install
 COPY install/nvidia.sh /tmp/install/
 RUN sudo /tmp/install/nvidia.sh
+
+## skip /tmp/install/nvidia-docker.sh because it can only run on the host
 
 COPY install/cuda.sh /tmp/install/
 RUN sudo /tmp/install/cuda.sh
