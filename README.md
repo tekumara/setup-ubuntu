@@ -14,5 +14,5 @@ curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.
 To download and extract the scripts without running them:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash -s -- --skip-install
+curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | sudo bash -s -- --skip-install
 ```
