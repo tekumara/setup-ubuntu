@@ -15,7 +15,8 @@ CUDA_PKG_VERSION="10-1=$CUDA_VERSION-1"
 # For libraries in the cuda-compat-* package: https://docs.nvidia.com/cuda/eula/index.html#attachment-a
 apt-get install -y --no-install-recommends \
     cuda-cudart-$CUDA_PKG_VERSION \
-    cuda-compat-10-1
+    cuda-compat-10-1 \
+    && ln -s cuda-10.1 /usr/local/cuda10
 
 ## 10.1-runtime-ubuntu18.04
 ## see https://gitlab.com/nvidia/container-images/cuda/-/blob/master/dist/10.1/ubuntu18.04-x86_64/runtime/Dockerfile

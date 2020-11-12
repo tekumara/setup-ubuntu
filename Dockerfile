@@ -13,7 +13,7 @@ WORKDIR /home/ubuntu
 # don't leave the locale as POSIX, otherwise we get the dreaded UnicodeDecodeError
 ENV LANG=C.UTF-8
 
-# copy files one at a time to create indivual caching layers
+# copy files one at a time to create individual caching layers
 COPY install/system.sh /tmp/install/
 RUN sudo /tmp/install/system.sh
 

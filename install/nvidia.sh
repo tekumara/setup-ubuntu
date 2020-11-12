@@ -11,9 +11,6 @@ apt-get update
 # install nvidia drivers
 apt-get install -y --no-install-recommends cuda-drivers
 
-# test
-nvidia-smi
-
 # install the Nvidia Container Toolkit to allow Docker to use GPUs
 curl -fsSL https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
@@ -23,7 +20,3 @@ apt-get update
 apt-get install -y --no-install-recommends nvidia-container-toolkit
 
 systemctl restart docker
-
-## test
-
-nvidia-container-cli -k -d /dev/tty info
