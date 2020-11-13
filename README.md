@@ -3,7 +3,7 @@
 Includes:
 
 - nvidia kernel drivers + container toolkit
-- CUDA install scripts adapted from [nvidia/container-images/cuda](https://gitlab.com/nvidia/container-images/cuda/-/tree/master/dist/10.1/ubuntu18.04-x86_64)
+- CUDA 10.1 install scripts adapted from [nvidia/container-images/cuda](https://gitlab.com/nvidia/container-images/cuda/-/tree/master/dist/10.1/ubuntu18.04-x86_64)
 - python 3.7
 
 ## Prequisities

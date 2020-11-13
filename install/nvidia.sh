@@ -10,3 +10,6 @@ apt-get update
 
 # install nvidia kernel module
 apt-get install -y --no-install-recommends cuda-drivers
+
+# TODO: install nvidia persistence daemon?
+# https://docs.nvidia.com/deploy/driver-persistence/index.html#persistence-daemon
