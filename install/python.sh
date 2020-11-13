@@ -8,8 +8,8 @@ add-apt-repository -y ppa:deadsnakes/ppa
 apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-venv
 
 # create a symlink in /usr/local/bin which will take precedence on the path
-ln -s /usr/bin/python3.7 /usr/local/bin/python3
-ln -s /usr/bin/python3.7 /usr/local/bin/python
+[[ ! -f /usr/local/bin/python3 ]] && ln -s /usr/bin/python3.7 /usr/local/bin/python3
+[[ ! -f /usr/local/bin/python ]] && ln -s /usr/bin/python3.7 /usr/local/bin/python
 
 # install pip directly, rather than installing the deb package which depends on the older python3 package
 # use sudo to make sure it is installed into dist-packages (ie: /usr/local/lib/python3.7/dist-packages/)
