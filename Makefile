@@ -15,9 +15,9 @@ build:
 run:
 	docker run --rm -it ubuntu-cuda:latest
 
-## test using toast
-test:
-	toast
+## test install.sh download
+test-download:
+	docker build . -f Dockerfile.download 
 
 ## tag the current commit as latest
 tag:
