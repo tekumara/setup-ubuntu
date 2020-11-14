@@ -42,7 +42,7 @@ else
     /tmp/install/system.sh
     /tmp/install/docker.sh
     /tmp/install/python.sh
-    /tmp/install/nvidia.sh
+    /tmp/install/nvidia-drivers.sh
     /tmp/install/nvidia-docker.sh
     /tmp/install/cuda.sh
 fi
