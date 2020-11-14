@@ -8,10 +8,6 @@ apt-get update
 apt-get -y -f upgrade
 
 # software-properties-common contains add-apt-repository and installs python
-# bsdmainutils contains column
-# net-tools contains ifconfig
-# iputils-ping contains ping
-# gnupg2 & ca-certificates needed for repos
+# gnupg2 & ca-certificates needed to add third party repos
 apt-get install -y --no-install-recommends \
-    sysstat bsdmainutils jq net-tools iputils-ping \
     gnupg2 ca-certificates software-properties-common

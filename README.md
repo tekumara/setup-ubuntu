@@ -16,13 +16,13 @@ Includes:
 Download, extract and run the install scripts:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash
 ```
 
 Download and extract the scripts without running them:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | sudo bash -s -- --skip-install
+curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash -s -- --skip-install
 ```
 
 ## Development
