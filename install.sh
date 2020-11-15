@@ -45,6 +45,6 @@ else
     sudo /tmp/install/git.sh
 
     # brew cannot be installed as root, so don't use sudo
-    sudo /tmp/install/brew.sh
+    /tmp/install/brew.sh
 
 fi

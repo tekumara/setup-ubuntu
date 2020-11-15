@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
-# brew needs git, install the latest version which allows configuring the default branch as main
-sudo add-apt-repository ppa:git-core/ppa -y
+# install the latest version which allows configuring the default branch as main
+apt-key adv --keyserver keyserver.ubuntu.com --recv-key E1DF1F24
+source /etc/os-release
+echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu $VERSION_CODENAME main" > "/etc/apt/sources.list.d/git-core-ubuntu-ppa-$VERSION_CODENAME.list"
+apt-get update
+
 sudo apt-get install -y git

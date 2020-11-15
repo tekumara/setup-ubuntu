@@ -3,7 +3,10 @@
 set -euo pipefail
 
 # add deadsnakes ppa because it has the latest minor versions
-add-apt-repository -y ppa:deadsnakes/ppa
+apt-key adv --keyserver keyserver.ubuntu.com --recv-key 6A755776
+source /etc/os-release
+echo "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu $VERSION_CODENAME main" > "/etc/apt/sources.list.d/deadsnakes-ubuntu-ppa-$VERSION_CODENAME.list"
+apt-get update
 
 apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-venv
 
@@ -15,4 +18,8 @@ apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-ven
 # use sudo to make sure it is installed into dist-packages (ie: /usr/local/lib/python3.7/dist-packages/)
 curl -s https://bootstrap.pypa.io/get-pip.py | sudo -H /usr/bin/python3.7
 
-# TODO: remove _/usr/lib/python3/dist-packages_ from PYTHONPATH
+# NB:
+# the .deb contains a modified version of site.py which adds /usr/lib/python3/dist-packages to PYTHONPATH
+# See https://github.com/deadsnakes/python3.7/blob/4dc651768517acccad5f5081fff2de3e4d5900cd/debian/patches/distutils-install-layout.diff#L243
+# the python3-* .deb packages will install into /usr/lib/python3/dist-packages which means they'll appear on the PYTHONPATH of this version
+# so it's not completely isolated

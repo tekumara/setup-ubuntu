@@ -28,3 +28,5 @@ curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.
 ## Development
 
 A Dockerfile is provided to test the scripts. run `make` to see options for building and running the Dockerfile.
+
+When adding ubuntu packages repos follow the existing pattern. Do not install software-properties-common and use apt-add-repository. The software-properties-common package which installs python3, python3-dbus, and python3-apt which adds python packages to _/usr/lib/python3/dist-packages_. Anything in _/usr/lib/python3/dist-packages_ is added to all python interpreters' PYTHONPATH.

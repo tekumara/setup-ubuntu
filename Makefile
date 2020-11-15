@@ -9,15 +9,15 @@ help:
 
 ## build the docker image
 build:
-	docker build . -t ubuntu-cuda
+	docker build . -t ubuntu-setup
 
 ## run latest docker image
 run:
-	docker run --rm -it ubuntu-cuda:latest
+	docker run --rm -it ubuntu-setup:latest
 
 ## test install.sh download
 test-download:
-	docker build . -f Dockerfile.download 
+	docker build . -f Dockerfile.download
 
 ## tag the current commit as latest
 tag:

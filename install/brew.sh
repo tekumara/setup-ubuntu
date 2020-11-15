@@ -14,4 +14,7 @@ else
     brew update
 fi
 
-# manpages
+#echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/ubuntu/.profile
+#eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+#- We recommend that you install GCC:
+#    brew install gcc
