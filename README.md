@@ -2,14 +2,14 @@
 
 Includes:
 
-- nvidia kernel drivers + container toolkit
-- CUDA 10.1 install scripts adapted from [nvidia/container-images/cuda](https://gitlab.com/nvidia/container-images/cuda/-/tree/master/dist/10.1/ubuntu18.04-x86_64)
+- docker
 - python 3.7
+- git
 
-## Prequisities
+## Prerequisites
 
 - Ubuntu 18.04
-- Install curl: `sudo apt-get update && sudo apt-get install -y curl`
+- Install curl: `sudo apt-get install -y curl`
 
 ## Usage
 

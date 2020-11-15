@@ -42,9 +42,6 @@ else
     sudo /tmp/install/system.sh
     sudo /tmp/install/docker.sh
     sudo /tmp/install/python.sh
-    sudo /tmp/install/nvidia-drivers.sh
-    sudo /tmp/install/nvidia-docker.sh
-    sudo /tmp/install/cuda.sh
     sudo /tmp/install/git.sh
 
     # brew cannot be installed as root, so don't use sudo

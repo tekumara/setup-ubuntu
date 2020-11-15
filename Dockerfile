@@ -23,15 +23,6 @@ RUN sudo /tmp/install/docker.sh
 COPY install/python.sh /tmp/install/
 RUN sudo /tmp/install/python.sh
 
-COPY install/nvidia-drivers.sh /tmp/install/
-RUN sudo /tmp/install/nvidia-drivers.sh
-
-COPY install/nvidia-docker.sh /tmp/install/
-RUN sudo /tmp/install/nvidia-docker.sh
-
-COPY install/cuda.sh /tmp/install/
-RUN sudo /tmp/install/cuda.sh
-
 COPY install/git.sh /tmp/install/
 RUN sudo /tmp/install/git.sh
 
