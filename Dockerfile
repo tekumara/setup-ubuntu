@@ -25,7 +25,3 @@ RUN sudo /tmp/install/python.sh
 
 COPY install/git.sh /tmp/install/
 RUN sudo /tmp/install/git.sh
-
-# brew cannot be installed as root, so don't use sudo
-COPY install/brew.sh /tmp/install/
-RUN /tmp/install/brew.sh

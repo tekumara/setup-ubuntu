@@ -44,7 +44,4 @@ else
     sudo /tmp/install/python.sh
     sudo /tmp/install/git.sh
 
-    # brew cannot be installed as root, so don't use sudo
-    /tmp/install/brew.sh
-
 fi
