@@ -20,8 +20,8 @@ RUN sudo /tmp/install/system.sh
 COPY install/docker.sh /tmp/install/
 RUN sudo /tmp/install/docker.sh
 
-COPY install/python.sh /tmp/install/
-RUN sudo /tmp/install/python.sh
-
 COPY install/git.sh /tmp/install/
 RUN sudo /tmp/install/git.sh
+
+COPY install/python.sh /tmp/install/
+RUN sudo /tmp/install/python.sh

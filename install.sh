@@ -41,7 +41,7 @@ else
     export DEBIAN_FRONTEND=noninteractive
     sudo /tmp/install/system.sh
     sudo /tmp/install/docker.sh
-    sudo /tmp/install/python.sh
     sudo /tmp/install/git.sh
+    sudo /tmp/install/python.sh
 
 fi

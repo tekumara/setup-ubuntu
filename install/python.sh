@@ -2,24 +2,112 @@
 
 set -euo pipefail
 
-# add deadsnakes ppa because it has the latest minor versions
-apt-key adv --keyserver keyserver.ubuntu.com --recv-key 6A755776
-source /etc/os-release
-echo "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu $VERSION_CODENAME main" > "/etc/apt/sources.list.d/deadsnakes-ubuntu-ppa-$VERSION_CODENAME.list"
-apt-get update
+GPG_KEY=0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D
+PYTHON_VERSION=3.7.9
 
-apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-venv
+apt-get install wget
 
-# create a symlink in /usr/local/bin which will take precedence on the path
-[[ ! -f /usr/local/bin/python3 ]] && ln -s /usr/bin/python3.7 /usr/local/bin/python3
-[[ ! -f /usr/local/bin/python ]] && ln -s /usr/bin/python3.7 /usr/local/bin/python
+wget -O python.tar.xz "https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz" \
+	&& wget -O python.tar.xz.asc "https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc" \
+	&& export GNUPGHOME="$(mktemp -d)" \
+	&& gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEY" \
+	&& gpg --batch --verify python.tar.xz.asc python.tar.xz \
+	&& { command -v gpgconf > /dev/null && gpgconf --kill all || :; } \
+	&& rm -rf "$GNUPGHOME" python.tar.xz.asc \
+	&& mkdir -p /usr/src/python \
+	&& tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz \
+	&& rm python.tar.xz \
+	\
+	&& cd /usr/src/python \
+	&& gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)" \
+	&& ./configure \
+		--build="$gnuArch" \
+		--enable-loadable-sqlite-extensions \
+		--enable-optimizations \
+		--enable-option-checking=fatal \
+		--enable-shared \
+		--with-system-expat \
+		--with-system-ffi \
+		--without-ensurepip \
+	&& make -j "$(nproc)" \
+# setting PROFILE_TASK makes "--enable-optimizations" reasonable: https://bugs.python.org/issue36044 / https://github.com/docker-library/python/issues/160#issuecomment-509426916
+		PROFILE_TASK='-m test.regrtest --pgo \
+			test_array \
+			test_base64 \
+			test_binascii \
+			test_binhex \
+			test_binop \
+			test_bytes \
+			test_c_locale_coercion \
+			test_class \
+			test_cmath \
+			test_codecs \
+			test_compile \
+			test_complex \
+			test_csv \
+			test_decimal \
+			test_dict \
+			test_float \
+			test_fstring \
+			test_hashlib \
+			test_io \
+			test_iter \
+			test_json \
+			test_long \
+			test_math \
+			test_memoryview \
+			test_pickle \
+			test_re \
+			test_set \
+			test_slice \
+			test_struct \
+			test_threading \
+			test_time \
+			test_traceback \
+			test_unicode \
+		' \
+	&& make install \
+	&& rm -rf /usr/src/python \
+	\
+	&& find /usr/local -depth \
+		\( \
+			\( -type d -a \( -name test -o -name tests -o -name idle_test \) \) \
+			-o \( -type f -a \( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' \) \) \
+			-o \( -type f -a -name 'wininst-*.exe' \) \
+		\) -exec rm -rf '{}' + \
+	\
+	&& ldconfig \
+	\
+	&& python3 --version
 
-# install pip directly, rather than installing the deb package which depends on the older python3 package
-# use sudo to make sure it is installed into dist-packages (ie: /usr/local/lib/python3.7/dist-packages/)
-curl -s https://bootstrap.pypa.io/get-pip.py | sudo -H /usr/bin/python3.7
+# make some useful symlinks that are expected to exist
+cd /usr/local/bin \
+	&& ln -s idle3 idle \
+	&& ln -s pydoc3 pydoc \
+	&& ln -s python3 python \
+	&& ln -s python3-config python-config
 
-# NB:
-# the .deb contains a modified version of site.py which adds /usr/lib/python3/dist-packages to PYTHONPATH
-# See https://github.com/deadsnakes/python3.7/blob/4dc651768517acccad5f5081fff2de3e4d5900cd/debian/patches/distutils-install-layout.diff#L243
-# the python3-* .deb packages will install into /usr/lib/python3/dist-packages which means they'll appear on the PYTHONPATH of this version
-# so it's not completely isolated
+
+# if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
+PYTHON_PIP_VERSION=20.2.4
+# https://github.com/pypa/get-pip
+PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/fa7dc83944936bf09a0e4cb5d5ec852c0d256599/get-pip.py
+PYTHON_GET_PIP_SHA256=6e0bb0a2c2533361d7f297ed547237caf1b7507f197835974c0dd7eba998c53c
+
+wget -O get-pip.py "$PYTHON_GET_PIP_URL"; \
+	echo "$PYTHON_GET_PIP_SHA256 *get-pip.py" | sha256sum --check --strict -; \
+	\
+	python get-pip.py \
+		--disable-pip-version-check \
+		--no-cache-dir \
+		"pip==$PYTHON_PIP_VERSION" \
+	; \
+	pip --version; \
+	\
+	find /usr/local -depth \
+		\( \
+			\( -type d -a \( -name test -o -name tests -o -name idle_test \) \) \
+			-o \
+			\( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
+		\) -exec rm -rf '{}' +; \
+	rm -f get-pip.py
