@@ -25,3 +25,6 @@ RUN sudo /tmp/install/git.sh
 
 COPY install/python.sh /tmp/install/
 RUN sudo /tmp/install/python.sh
+
+COPY install/java.sh /tmp/install/
+RUN sudo /tmp/install/java.sh

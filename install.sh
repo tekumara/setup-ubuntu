@@ -43,5 +43,6 @@ else
     sudo /tmp/install/docker.sh
     sudo /tmp/install/git.sh
     sudo /tmp/install/python.sh
+    sudo /tmp/install/java.sh
 
 fi
