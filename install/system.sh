@@ -15,4 +15,4 @@ apt-get -y -f upgrade
 apt-get install -y --no-install-recommends \
     gnupg2 \
     automake libtool make build-essential \
-    less vim bsdmainutils jq man-db sysstat net-tools iputils-ping wget
+    less vim bsdmainutils jq man-db manpages-posix sysstat net-tools iputils-ping wget

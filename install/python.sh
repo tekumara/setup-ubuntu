@@ -18,4 +18,4 @@ apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-ven
 
 # install pip directly, rather than installing the deb package which depends on the older python3 package
 # use sudo to make sure it is installed as a system rather than user package (ie: /usr/local/lib/python3.7/dist-packages/)
-curl -s https://bootstrap.pypa.io/get-pip.py | sudo -H /usr/local/bin/python3
+curl -fsSL https://bootstrap.pypa.io/get-pip.py | sudo -H /usr/local/bin/python3

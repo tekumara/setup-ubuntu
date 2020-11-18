@@ -23,7 +23,7 @@ parse_args() {
 
 parse_args "$@"
 
-TARBALL_URL=$(curl -s https://api.github.com/repos/tekumara/setup-ubuntu/releases/latest | grep tarball | cut -d '"' -f 4)
+TARBALL_URL=$(curl -fsSL https://api.github.com/repos/tekumara/setup-ubuntu/releases/latest | grep tarball | cut -d '"' -f 4)
 
 if ! curl --progress-bar --fail -L "$TARBALL_URL" -o "/tmp/setup-ubuntu.tar.gz"; then
     echo "Download failed.  Check that the release/filename are correct."

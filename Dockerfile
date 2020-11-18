@@ -1,5 +1,8 @@
 FROM ubuntu:18.04
 
+# enable installation of man pages
+RUN rm -f /etc/dpkg/dpkg.cfg.d/excludes
+
 # setup sudo and ubuntu user with sudo rights and no password
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get upgrade -y
@@ -13,7 +16,7 @@ WORKDIR /home/ubuntu
 # don't leave the locale as POSIX, otherwise we get the dreaded UnicodeDecodeError
 ENV LANG=C.UTF-8
 
-# copy files one at a time to create individual caching layers
+# copy and run files one at a time to create individual caching layers
 COPY install/system.sh /tmp/install/
 RUN sudo /tmp/install/system.sh
 
