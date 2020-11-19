@@ -32,7 +32,10 @@ RUN sudo /tmp/install/python.sh
 COPY install/java.sh /tmp/install/
 RUN sudo /tmp/install/java.sh
 
+COPY dotfiles/ /tmp/dotfiles/
+
 COPY install-user/user.sh /tmp/install/
 RUN /tmp/install/user.sh
+
 
 ENTRYPOINT [ "/usr/bin/zsh" ]

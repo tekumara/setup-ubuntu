@@ -17,4 +17,7 @@ apt-get install -y --no-install-recommends \
     automake libtool make build-essential \
     sysstat net-tools iputils-ping wget \
     less vim bsdmainutils jq man-db manpages-posix \
-    zsh
+    zsh stow
+
+# antibody zsh plugin manager
+curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
