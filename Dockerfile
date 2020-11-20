@@ -34,8 +34,10 @@ RUN sudo /tmp/install/java.sh
 
 COPY dotfiles/ /tmp/dotfiles/
 
-COPY install-user/user.sh /tmp/install/
-RUN /tmp/install/user.sh
+COPY install-user/packages.sh /tmp/install/
+RUN /tmp/install/packages.sh
 
+COPY install-user/config.sh /tmp/install/
+RUN /tmp/install/config.sh
 
 ENTRYPOINT [ "/usr/bin/zsh" ]

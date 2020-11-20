@@ -19,7 +19,7 @@ mkdir ~/data
 # install dotfiles
 cp -r "$DIR"/../dotfiles/. ~
 
-# run zsh to start antibody for the first time so it can download plugins
+# run zsh to start antibody for the first time to download plugins
 zsh -i -c exit;
 
 ## vim settings

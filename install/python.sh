@@ -21,3 +21,6 @@ apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-ven
 curl -fsSL https://bootstrap.pypa.io/get-pip.py | sudo -H /usr/local/bin/python3
 
 pip install pipx
+
+# virtualenv is used by virtualenvwrapper
+pip install virtualenv

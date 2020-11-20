@@ -19,16 +19,11 @@ fi
 
 source ~/.zsh_plugins.sh
 
-#source "$HOME/.zshrc.d/aws.plugin.zsh"
+#source "$HOME/.zshrc.d/init.plugin.zsh"
 #source "$HOME/.zshrc.d/docker.plugin.zsh"
-#source "$HOME/.zshrc.d/git.plugin.zsh"
-#source "$HOME/.zshrc.d/golang.plugin.zsh"
-#source "$HOME/.zshrc.d/java.plugin.zsh"
-#source "$HOME/.zshrc.d/kubectl.plugin.zsh"
+source "$HOME/.zshrc.d/git.plugin.zsh"
 #source "$HOME/.zshrc.d/node.plugin.zsh"
-#source "$HOME/.zshrc.d/python.plugin.zsh"
-#source "$HOME/.zshrc.d/rust.plugin.zsh"
-#source "$HOME/Dropbox/Slack/functions.zsh"
+source "$HOME/.zshrc.d/python.plugin.zsh"
 
 # increase history size
 HISTSIZE=50000

@@ -6,6 +6,3 @@ export AWS_PAGER="less -F -X"
 
 # added by pipx
 export PATH="$PATH:$HOME/.local/bin"
-
-# prevent pip from installing globally
-export PIP_REQUIRE_VIRTUALENV=true
