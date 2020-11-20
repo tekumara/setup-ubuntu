@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-set -x
+
 # use deadsnakes ppa rather than the ubuntu packages because it has the latest minor versions
 # builds with --enable-optimizations (NB: building from source with optimizations takes a long time)
 # deb packages are built with --prefix=/usr

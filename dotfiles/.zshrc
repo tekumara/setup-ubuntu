@@ -19,10 +19,8 @@ fi
 
 source ~/.zsh_plugins.sh
 
-#source "$HOME/.zshrc.d/init.plugin.zsh"
-#source "$HOME/.zshrc.d/docker.plugin.zsh"
+source "$HOME/.zshrc.d/init.plugin.zsh"
 source "$HOME/.zshrc.d/git.plugin.zsh"
-#source "$HOME/.zshrc.d/node.plugin.zsh"
 source "$HOME/.zshrc.d/python.plugin.zsh"
 
 # increase history size

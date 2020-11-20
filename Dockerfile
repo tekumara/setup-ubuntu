@@ -32,6 +32,9 @@ RUN sudo /tmp/install/python.sh
 COPY install/java.sh /tmp/install/
 RUN sudo /tmp/install/java.sh
 
+COPY install/node.sh /tmp/install/
+RUN sudo /tmp/install/node.sh
+
 COPY dotfiles/ /tmp/dotfiles/
 
 COPY install-user/packages.sh /tmp/install/
