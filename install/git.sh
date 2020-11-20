@@ -2,13 +2,19 @@
 
 set -euo pipefail
 
-# install the latest version which allows configuring the default branch as main
+# add repo for the latest version of git which allows configuring the default branch as main
 apt-key adv --keyserver keyserver.ubuntu.com --recv-key E1DF1F24
 source /etc/os-release
 echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu $VERSION_CODENAME main" > "/etc/apt/sources.list.d/git-core-ubuntu-ppa-$VERSION_CODENAME.list"
 apt-get update
 
-apt-get install -y --no-install-recommends git
+# add diff-so-fancy repo
+apt-key adv --keyserver keyserver.ubuntu.com --recv-key 8486162E
+source /etc/os-release
+echo "deb http://ppa.launchpad.net/aos1/diff-so-fancy/ubuntu/ $VERSION_CODENAME main" > "/etc/apt/sources.list.d/aos1-ubuntu-diff-so-fancy-$VERSION_CODENAME.list"
+apt-get update
+
+apt-get install -y --no-install-recommends git diff-so-fancy
 
 # install scmpuff
 scmpuff_version=0.3.0

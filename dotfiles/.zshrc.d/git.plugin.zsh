@@ -27,3 +27,4 @@ alias gdh='git diff "HEAD^" HEAD'
 alias gda='git diff HEAD'
 # add everything except untracked files
 alias gaa='git add -u'
+alias ginit='git init && git commit -m "root commit" --allow-empty'

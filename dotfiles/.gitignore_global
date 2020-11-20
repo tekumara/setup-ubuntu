@@ -1,0 +1,14 @@
+# IDEs
+
+.idea/
+*.iml
+.vscode/
+.metals/
+
+# Python
+
+.pytype/
+.mypy_cache/
+.pytest_cache/
+*.egg-info/
+__pycache__/
