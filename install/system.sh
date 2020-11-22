@@ -12,12 +12,14 @@ apt-get -y -f upgrade
 # bsdmainutils contains column
 # net-tools contains ifconfig
 # iputils-ping contains ping
+# ca-certificates is needed for HTTPS
 apt-get install -y --no-install-recommends \
     gnupg2 \
     automake libtool make build-essential \
-    sysstat net-tools iputils-ping wget \
-    less vim bsdmainutils jq man-db manpages-posix \
+    sysstat net-tools iputils-ping \
+    wget curl ca-certificates \
+    less vim bsdmainutils jq man-db \
     zsh
 
-# antibody zsh plugin manager
-curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
+# install zsh plugin manager (antibody)
+curl -sSfL git.io/antibody | sh -s - -b /usr/local/bin

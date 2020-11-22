@@ -1,12 +1,16 @@
 FROM ubuntu:18.04
 
-# enable installation of man pages
+# fetch package lists
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update
+
+# enable installation of man pages & reinstall coreutils so
+# we have manpages for ls etc.
 RUN rm -f /etc/dpkg/dpkg.cfg.d/excludes
+RUN apt-get install --reinstall -y coreutils
 
 # setup sudo and ubuntu user with sudo rights and no password
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y sudo curl
+RUN apt-get install -y sudo
 RUN adduser --disabled-password --gecos '' ubuntu && adduser ubuntu sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
@@ -35,10 +39,10 @@ RUN sudo /tmp/install/java.sh
 COPY install/node.sh /tmp/install/
 RUN sudo /tmp/install/node.sh
 
-COPY dotfiles/ /tmp/dotfiles/
-
 COPY install-user/packages.sh /tmp/install/
 RUN /tmp/install/packages.sh
+
+COPY dotfiles/ /tmp/dotfiles/
 
 COPY install-user/config.sh /tmp/install/
 RUN /tmp/install/config.sh
