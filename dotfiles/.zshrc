@@ -9,7 +9,6 @@ if [[ ! -f ~/.zsh_plugins.sh ]] || [[ ~/.zshrc -nt ~/.zsh_plugins.sh ]]; then
     sindresorhus/pure
 
     zdharma/fast-syntax-highlighting
-    zsh-users/zsh-history-substring-search
     zsh-users/zsh-autosuggestions
 
     agkozak/zsh-z
