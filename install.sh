@@ -48,4 +48,5 @@ else
     /tmp/install-user/packages.sh
     /tmp/install-user/config.sh
 
+    echo "Done ✨. Relogin to start using zsh."
 fi
