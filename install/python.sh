@@ -5,7 +5,7 @@ set -euo pipefail
 # use deadsnakes ppa rather than the ubuntu packages because it has the latest minor versions
 # builds with --enable-optimizations (NB: building from source with optimizations takes a long time)
 # deb packages are built with --prefix=/usr
-apt-key adv --keyserver keyserver.ubuntu.com --recv-key 6A755776
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 6A755776
 source /etc/os-release
 echo "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu $VERSION_CODENAME main" > "/etc/apt/sources.list.d/deadsnakes-ubuntu-ppa-$VERSION_CODENAME.list"
 apt-get update
