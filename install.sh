@@ -44,5 +44,8 @@ else
     sudo /tmp/install/git.sh
     sudo /tmp/install/python.sh
     sudo /tmp/install/java.sh
+    sudo /tmp/install/node.sh
+    /tmp/install-user/packages.sh
+    /tmp/install-user/config.sh
 
 fi
