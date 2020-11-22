@@ -7,7 +7,7 @@ Includes:
 - java 1.8
 - node LTS
 - git
-- zsh + dotfiles
+- zsh + dotfiles + [fzf](https://github.com/junegunn/fzf) + [zsh-z](https://github.com/agkozak/zsh-z)
 
 ## Prerequisites
 
