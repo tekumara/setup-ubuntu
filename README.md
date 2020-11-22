@@ -4,7 +4,10 @@ Includes:
 
 - docker
 - python 3.7
+- java 1.8
+- node LTS
 - git
+- zsh + dotfiles
 
 ## Prerequisites
 

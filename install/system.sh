@@ -5,7 +5,15 @@ set -euo pipefail
 set -x
 
 apt-get update
-apt-get -y -f upgrade
+
+# wait for any unattended upgrades that may be running, otherwise apt-get upgrade will fail
+while pgrep /usr/bin/unattended-upgrade;
+do
+    echo "waiting for unattended upgrades to finish..."
+    sleep 10
+done
+
+apt-get upgrade -y -f
 
 # gnupg2 is needed to add third party repos
 # automake libtool make build-essential are build tools
