@@ -21,26 +21,26 @@ WORKDIR /home/ubuntu
 ENV LANG=C.UTF-8
 
 # copy and run files one at a time to create individual caching layers
-COPY install/system.sh /tmp/install/
-RUN sudo /tmp/install/system.sh
+COPY install-root/system.sh /tmp/install-root/
+RUN sudo /tmp/install-root/system.sh
 
-COPY install/docker.sh /tmp/install/
-RUN sudo /tmp/install/docker.sh
+COPY install-root/docker.sh /tmp/install-root/
+RUN sudo /tmp/install-root/docker.sh
 
-COPY install/git.sh /tmp/install/
-RUN sudo /tmp/install/git.sh
+COPY install-root/git.sh /tmp/install-root/
+RUN sudo /tmp/install-root/git.sh
 
-COPY install/python.sh /tmp/install/
-RUN sudo /tmp/install/python.sh
+COPY install-root/python.sh /tmp/install-root/
+RUN sudo /tmp/install-root/python.sh
 
-COPY install/java.sh /tmp/install/
-RUN sudo /tmp/install/java.sh
+COPY install-root/java.sh /tmp/install-root/
+RUN sudo /tmp/install-root/java.sh
 
-COPY install/node.sh /tmp/install/
-RUN sudo /tmp/install/node.sh
+COPY install-root/node.sh /tmp/install-root/
+RUN sudo /tmp/install-root/node.sh
 
-COPY install/aws.sh /tmp/install/
-RUN sudo /tmp/install/aws.sh
+COPY install-root/aws.sh /tmp/install-root/
+RUN sudo /tmp/install-root/aws.sh
 
 COPY install-user/packages.sh /tmp/install-user/
 RUN /tmp/install-user/packages.sh

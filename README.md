@@ -35,4 +35,4 @@ curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.
 
 Run `make` to see options for building and running the Dockerfiles.
 
-When adding ubuntu packages repos follow the [existing pattern](install/docker.sh). Do not install software-properties-common and use apt-add-repository. The software-properties-common package installs python3, python3-dbus, and python3-apt which adds python packages to _/usr/lib/python3/dist-packages_. Anything in _/usr/lib/python3/dist-packages_ is added to all python interpreters' PYTHONPATH.
+When adding ubuntu packages repos follow the [existing pattern](install-root/docker.sh). Do not install software-properties-common and use apt-add-repository. The software-properties-common package installs python3, python3-dbus, and python3-apt which adds python packages to _/usr/lib/python3/dist-packages_. Anything in _/usr/lib/python3/dist-packages_ is added to all python interpreters' PYTHONPATH.

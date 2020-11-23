@@ -39,13 +39,13 @@ else
     set -x
 
     export DEBIAN_FRONTEND=noninteractive
-    sudo /tmp/install/system.sh
-    sudo /tmp/install/docker.sh
-    sudo /tmp/install/git.sh
-    sudo /tmp/install/python.sh
-    sudo /tmp/install/java.sh
-    sudo /tmp/install/node.sh
-    sudo /tmp/install/aws.sh
+    sudo /tmp/install-root/system.sh
+    sudo /tmp/install-root/docker.sh
+    sudo /tmp/install-root/git.sh
+    sudo /tmp/install-root/python.sh
+    sudo /tmp/install-root/java.sh
+    sudo /tmp/install-root/node.sh
+    sudo /tmp/install-root/aws.sh
     /tmp/install-user/packages.sh
     /tmp/install-user/config.sh
 
