@@ -45,6 +45,7 @@ else
     sudo /tmp/install/python.sh
     sudo /tmp/install/java.sh
     sudo /tmp/install/node.sh
+    sudo /tmp/install/aws.sh
     /tmp/install-user/packages.sh
     /tmp/install-user/config.sh
 

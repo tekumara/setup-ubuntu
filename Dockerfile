@@ -39,6 +39,9 @@ RUN sudo /tmp/install/java.sh
 COPY install/node.sh /tmp/install/
 RUN sudo /tmp/install/node.sh
 
+COPY install/aws.sh /tmp/install/
+RUN sudo /tmp/install/aws.sh
+
 COPY install-user/packages.sh /tmp/install/
 RUN /tmp/install/packages.sh
 

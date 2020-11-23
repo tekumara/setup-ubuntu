@@ -18,7 +18,7 @@ apt-get install -y --no-install-recommends \
     sysstat net-tools iputils-ping \
     wget curl ca-certificates \
     less vim bsdmainutils jq man-db \
-    zsh
+    zsh unzip
 
 # install zsh plugin manager (antibody)
 curl -sSfL git.io/antibody | sh -s - -b /usr/local/bin
