@@ -16,8 +16,8 @@ run:
 	docker run --rm -it ubuntu-setup:latest
 
 ## test install.sh download
-test-download:
-	docker build . -f Dockerfile.download
+test:
+	docker build . -f Dockerfile.test
 
 ## tag the current commit as latest
 tag:

@@ -42,12 +42,12 @@ RUN sudo /tmp/install/node.sh
 COPY install/aws.sh /tmp/install/
 RUN sudo /tmp/install/aws.sh
 
-COPY install-user/packages.sh /tmp/install/
-RUN /tmp/install/packages.sh
+COPY install-user/packages.sh /tmp/install-user/
+RUN /tmp/install-user/packages.sh
 
 COPY dotfiles/ /tmp/dotfiles/
 
-COPY install-user/config.sh /tmp/install/
-RUN /tmp/install/config.sh
+COPY install-user/config.sh /tmp/install-user/
+RUN /tmp/install-user/config.sh
 
 ENTRYPOINT [ "/usr/bin/zsh" ]
