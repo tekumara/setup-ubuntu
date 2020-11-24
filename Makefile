@@ -15,7 +15,7 @@ build:
 run:
 	docker run --rm -it ubuntu-setup:latest
 
-## test install.sh download
+## test install.sh download from latest tag
 test:
 	docker build . -f Dockerfile.test
 
