@@ -9,6 +9,9 @@ if [[ ! -f ~/.zsh_plugins.sh ]] || [[ ~/.zshrc -nt ~/.zsh_plugins.sh ]]; then
     zdharma/fast-syntax-highlighting
     zsh-users/zsh-autosuggestions
 
+    # fixes syntax colouring in tmux/cloud9 by setting TERM=screen-256color
+    chrissicool/zsh-256color
+
     agkozak/zsh-z
 EOF
 fi
