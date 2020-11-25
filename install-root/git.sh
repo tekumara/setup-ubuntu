@@ -16,9 +16,11 @@ apt-get update
 
 apt-get install -y --no-install-recommends git diff-so-fancy
 
-# install scmpuff
+# scmpuff
+echo "install scmpuff"
 scmpuff_version=0.3.0
+tmp_dir=$(mktemp -d) && pushd "$tmp_dir"
 curl -fsSLo scmpuff.tar.gz "https://github.com/mroth/scmpuff/releases/download/v${scmpuff_version}/scmpuff_${scmpuff_version}_linux_x64.tar.gz"
-tar -zxf scmpuff.tar.gz -C /tmp
-rm scmpuff.tar.gz
-install /tmp/scmpuff /usr/local/bin
+tar -zxf scmpuff.tar.gz
+install scmpuff /usr/local/bin
+popd && rm -rf "$tmp_dir"
