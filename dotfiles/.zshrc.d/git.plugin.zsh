@@ -28,3 +28,5 @@ alias gda='git diff HEAD'
 # add everything except untracked files
 alias gaa='git add -u'
 alias ginit='git init && git commit -m "root commit" --allow-empty'
+# set tracking information for current branch to same named branch on origin
+alias gbu='current=$(git rev-parse --abbrev-ref HEAD) && git branch --set-upstream-to="origin/$current" "$current"'
