@@ -5,9 +5,9 @@ set -euo pipefail
 set -x
 
 # install python packages
-pipx install virtualenvwrapper
-pipx install nbstripout
-pipx install nbdime
+pipx install --force virtualenvwrapper
+pipx install --force nbstripout
+pipx install --force nbdime
 
 # install fzf for fuzzy history and directory search
 if [[ ! -d "$HOME/.fzf" ]]; then
