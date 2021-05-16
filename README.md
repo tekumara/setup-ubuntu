@@ -1,4 +1,4 @@
-# ubuntu 18.04 install scripts
+# ubuntu install scripts
 
 Includes:
 
@@ -8,6 +8,8 @@ Includes:
 - node LTS
 - git
 - zsh + dotfiles + [fzf](https://github.com/junegunn/fzf) + [zsh-z](https://github.com/agkozak/zsh-z)
+
+Tested on Ubuntu 18.04 and 20.04
 
 ## Prerequisites
 
