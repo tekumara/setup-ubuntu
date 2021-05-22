@@ -4,6 +4,11 @@ set -uoe pipefail
 
 INSTALL=true
 
+function die() {
+    >&2 echo -e "$@"
+    exit 1
+}
+
 parse_args() {
     while [[ $# -gt 0 ]]; do
         key="$1"
@@ -11,7 +16,12 @@ parse_args() {
         case $key in
         -s | --skip-install)
             INSTALL=false
-            shift # past argument
+            shift # next argument
+            ;;
+        -u | --install-user)
+            shift
+            INSTALL_USER="$1"
+            shift
             ;;
         *)
             echo "Unrecognized argument $key"
@@ -22,6 +32,12 @@ parse_args() {
 }
 
 parse_args "$@"
+
+USER=$(whoami)
+
+if [[ "$USER" == "root"  && -z "${INSTALL_USER-}" ]]; then
+    die "When run as root must specify an install user via -u"
+fi
 
 TARBALL_URL=$(curl -fsSL https://api.github.com/repos/tekumara/setup-ubuntu/releases/latest | grep tarball | cut -d '"' -f 4)
 
@@ -46,8 +62,12 @@ else
     sudo /tmp/install-root/java.sh
     sudo /tmp/install-root/node.sh
     sudo /tmp/install-root/aws.sh
-    /tmp/install-user/packages.sh
-    /tmp/install-user/config.sh
-
+    if [[ "$USER" == "root" ]]; then
+        sudo -H -u "$INSTALL_USER" /tmp/install-user/packages.sh
+        sudo -H -u "$INSTALL_USER" /tmp/install-user/config.sh
+    else
+        /tmp/install-user/packages.sh
+        /tmp/install-user/config.sh
+    fi
     echo "Done ✨. Relogin to start using zsh."
 fi
