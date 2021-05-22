@@ -4,6 +4,11 @@ FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
+# enable installation of man pages & reinstall coreutils so
+# we have manpages for ls etc.
+RUN rm -f /etc/dpkg/dpkg.cfg.d/excludes
+RUN apt-get install --reinstall -y coreutils
+
 # setup sudo and ubuntu user with sudo rights and no password
 RUN apt-get install -y sudo
 RUN adduser --disabled-password --gecos '' ubuntu && adduser ubuntu sudo

@@ -30,6 +30,8 @@ Download and extract the scripts without running them:
 curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash -s -- --skip-install
 ```
 
+Or use [setup-ubuntu.yaml](setup-ubuntu.yaml) cloud config as your cloud-init userdata file.
+
 ## Development
 
 [Dockerfile](Dockerfile) is provided to help build the scripts. Each layer is a script and cached to make it easy to iterate on changes.

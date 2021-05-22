@@ -7,5 +7,5 @@ repo_upgrade: security
 
 runcmd:
   - apt-get install -y curl
-  - curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash
-
+  # install for the ubuntu user
+  - curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash -s -- -u ubuntu

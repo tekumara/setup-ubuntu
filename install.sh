@@ -5,7 +5,7 @@ set -uoe pipefail
 INSTALL=true
 
 function die() {
-    >&2 echo -e "$@"
+    >&2 echo -e ERROR: "$@"
     exit 1
 }
 
@@ -42,8 +42,7 @@ fi
 TARBALL_URL=$(curl -fsSL https://api.github.com/repos/tekumara/setup-ubuntu/releases/latest | grep tarball | cut -d '"' -f 4)
 
 if ! curl --progress-bar --fail -L "$TARBALL_URL" -o "/tmp/setup-ubuntu.tar.gz"; then
-    echo "Download failed.  Check that the release/filename are correct."
-    exit 1
+    die "Download failed.  Check that the release/filename are correct."
 fi
 
 echo "Extracting install scripts to /tmp/"
