@@ -1,0 +1,16 @@
+name: main
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Tag commit
+      #if: github.ref == 'refs/heads/main'
+      uses: tekumara/github-tagger
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        tag: "latest"
+
