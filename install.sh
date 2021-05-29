@@ -39,9 +39,7 @@ if [[ "$USER" == "root"  && -z "${INSTALL_USER-}" ]]; then
     die "When run as root must specify an install user via -u"
 fi
 
-TARBALL_URL=$(curl -fsSL https://api.github.com/repos/tekumara/setup-ubuntu/releases/latest | grep tarball | cut -d '"' -f 4)
-
-if ! curl --progress-bar --fail -L "$TARBALL_URL" -o "/tmp/setup-ubuntu.tar.gz"; then
+if ! curl --progress-bar --fail -L https://github.com/tekumara/setup-ubuntu/tarball/main -o "/tmp/setup-ubuntu.tar.gz"; then
     die "Download failed.  Check that the release/filename are correct."
 fi
 

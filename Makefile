@@ -15,10 +15,7 @@ build:
 run:
 	docker run --rm -it ubuntu-setup:latest
 
-## test install.sh download from latest tag
+## test install.sh
 test:
 	docker build . -f Dockerfile.test
 
-## tag the current commit as latest
-tag:
-	git tag -f latest && git push --tags -f
