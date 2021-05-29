@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Tag commit
       #if: github.ref == 'refs/heads/main'
-      uses: tekumara/github-tagger@0.0.2-wip
+      uses: tekumara/github-tagger@force-update
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         tag: "latest"
