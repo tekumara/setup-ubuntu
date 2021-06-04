@@ -10,11 +10,14 @@ source /etc/os-release
 echo "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu $VERSION_CODENAME main" > "/etc/apt/sources.list.d/deadsnakes-ubuntu-ppa-$VERSION_CODENAME.list"
 apt-get update
 
-apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-venv
+apt-get install -y --no-install-recommends python3.7 python3.7-dev python3.7-venv python3-apt
 
 # create symlinks in /usr/local/bin which will take precedence on the path
 [[ ! -f /usr/local/bin/python3 ]] && ln -s /usr/bin/python3.7 /usr/local/bin/python3
 [[ ! -f /usr/local/bin/python ]] && ln -s /usr/bin/python3.7 /usr/local/bin/python
+
+# allow apt_pkg to be used by python minor versions other than the python3-apt build version
+ln -s /usr/lib/python3/dist-packages/apt_pkg.cpython-*.so /usr/lib/python3/dist-packages/apt_pkg.so
 
 # install pip directly, rather than installing the deb package which depends on the older python3 package
 # use sudo to make sure it is installed as a system rather than user package (ie: /usr/local/lib/python3.7/dist-packages/)
