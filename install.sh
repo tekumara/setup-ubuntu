@@ -3,9 +3,10 @@
 set -uoe pipefail
 
 INSTALL=true
+GIT_SHA=main
 
 function die() {
-    >&2 echo -e ERROR: "$@"
+    echo >&2 -e ERROR: "$@"
     exit 1
 }
 
@@ -23,6 +24,10 @@ parse_args() {
             INSTALL_USER="$1"
             shift
             ;;
+        -g | --git-sha)
+            GIT_SHA="$1"
+            shift
+            ;;
         *)
             echo "Unrecognized argument $key"
             exit 1
@@ -35,11 +40,11 @@ parse_args "$@"
 
 USER=$(whoami)
 
-if [[ "$USER" == "root"  && -z "${INSTALL_USER-}" ]]; then
+if [[ "$USER" == "root" && -z "${INSTALL_USER-}" ]]; then
     die "When run as root must specify an install user via -u"
 fi
 
-if ! curl --progress-bar --fail -L https://github.com/tekumara/setup-ubuntu/tarball/main -o "/tmp/setup-ubuntu.tar.gz"; then
+if ! curl --progress-bar --fail -L "https://github.com/tekumara/setup-ubuntu/tarball/$GIT_SHA" -o "/tmp/setup-ubuntu.tar.gz"; then
     die "Download failed.  Check that the release/filename are correct."
 fi
 

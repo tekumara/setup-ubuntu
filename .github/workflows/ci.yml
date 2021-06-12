@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: install.sh
-        run: ./install.sh
+        run: ./install.sh --git-sha $GITHUB_SHA
