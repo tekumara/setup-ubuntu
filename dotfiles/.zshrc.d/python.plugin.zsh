@@ -7,5 +7,5 @@ alias venv='{[[ -d .venv ]] && . .venv/bin/activate} || {[[ -d venv ]] && . venv
 alias mkvenv='virtualenv .venv'
 
 # load virtualenvwrapper
-VIRTUALENVWRAPPER_PYTHON=$HOME/.local/pipx/venvs/virtualenvwrapper/bin/python
-source "$HOME/.local/bin/virtualenvwrapper.sh"
+VIRTUALENVWRAPPER_PYTHON=${PIPX_HOME:-$HOME/.local/pipx}/venvs/virtualenvwrapper/bin/python
+source virtualenvwrapper.sh
