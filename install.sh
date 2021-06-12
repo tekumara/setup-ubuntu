@@ -25,6 +25,7 @@ parse_args() {
             shift
             ;;
         -g | --git-sha)
+            shift
             GIT_SHA="$1"
             shift
             ;;
