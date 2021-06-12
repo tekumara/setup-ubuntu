@@ -11,3 +11,7 @@ jobs:
 
       - name: install.sh
         run: ./install.sh --git-sha $GITHUB_SHA
+
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
