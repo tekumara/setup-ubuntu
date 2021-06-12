@@ -9,6 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # fixes https://github.com/zsh-users/zsh-completions/issues/433
+      - name: fix insecure directories
+        run: |
+          sudo chmod go-w /usr/share/zsh/vendor-completions /usr/share/zsh/
+
       - name: install.sh
         run: ./install.sh --git-sha $GITHUB_SHA
 
