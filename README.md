@@ -1,5 +1,7 @@
 # ubuntu install scripts
 
+[![Build](https://github.com/tekumara/setup-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/tekumara/setup-ubuntu/actions/workflows/ci.yml)
+
 Includes:
 
 - docker
