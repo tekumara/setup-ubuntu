@@ -57,6 +57,14 @@ alias ll='ls -lh'                 # Lists human readable sizes.
 alias la='ll -A'                  # Lists human readable sizes, hidden files.
 alias grep="grep --color=auto"    # Coloured grep
 
+# Bindkeys
+# --------
+
+# edit command in an external editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
 # History
 # -------
 #
@@ -133,6 +141,9 @@ else
 fi
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# shift-tab goes to previous menu item
+bindkey '^[[Z' reverse-menu-complete
 
 # call this after all plugins with completions have loaded
 _load_compinit() {
