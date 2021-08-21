@@ -51,8 +51,11 @@ if ! curl --progress-bar --fail -L "$TARBALL_URL" -o "/tmp/setup-ubuntu.tar.gz";
     die "Download failed.  Check that the URL is correct."
 fi
 
-echo "Extracting install scripts to /tmp/"
-tar -xvf /tmp/setup-ubuntu.tar.gz -C /tmp --strip-components=1
+dir=/tmp/setup-ubuntu
+mkdir -p $dir
+
+echo "Extracting install scripts to $dir"
+tar -xvf /tmp/setup-ubuntu.tar.gz -C $dir --strip-components=1
 
 if [[ "$INSTALL" = false ]]; then
     echo "Skipping install"
@@ -60,19 +63,19 @@ else
     set -x
 
     export DEBIAN_FRONTEND=noninteractive
-    sudo /tmp/install-root/system.sh
-    sudo /tmp/install-root/docker.sh
-    sudo /tmp/install-root/git.sh
-    sudo /tmp/install-root/python.sh
-    sudo /tmp/install-root/java.sh
-    sudo /tmp/install-root/node.sh
-    sudo /tmp/install-root/aws.sh
+    sudo $dir/install-root/system.sh
+    sudo $dir/install-root/docker.sh
+    sudo $dir/install-root/git.sh
+    sudo $dir/install-root/python.sh
+    sudo $dir/install-root/java.sh
+    sudo $dir/install-root/node.sh
+    sudo $dir/install-root/aws.sh
     if [[ "$USER" == "root" ]]; then
-        sudo -H -u "$INSTALL_USER" /tmp/install-user/packages.sh
-        sudo -H -u "$INSTALL_USER" /tmp/install-user/config.sh
+        sudo -H -u "$INSTALL_USER" $dir/install-user/packages.sh
+        sudo -H -u "$INSTALL_USER" $dir/install-user/config.sh
     else
-        /tmp/install-user/packages.sh
-        /tmp/install-user/config.sh
+        $dir/install-user/packages.sh
+        $dir/install-user/config.sh
     fi
     echo "Done ✨. Relogin to start using zsh."
 fi

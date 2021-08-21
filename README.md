@@ -15,7 +15,7 @@ Tested on Ubuntu 18.04 and 20.04
 
 ## Prerequisites
 
-- Ubuntu 18.04
+- Ubuntu 18.04 / 20.04
 - Install curl: `sudo apt-get install -y curl`
 
 ## Usage
