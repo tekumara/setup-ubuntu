@@ -6,7 +6,7 @@ Includes:
 
 - docker
 - python 3.7
-- java 1.8
+- java 11
 - node LTS
 - git
 - zsh + [dotfiles](dotfiles/) + [antibody](https://github.com/getantibody/antibody) + [fzf](https://github.com/junegunn/fzf) + [zsh-z](https://github.com/agkozak/zsh-z)
