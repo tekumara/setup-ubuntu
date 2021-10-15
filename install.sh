@@ -45,9 +45,9 @@ if [[ "$USER" == "root" && -z "${INSTALL_USER-}" ]]; then
     die "When run as root must specify an install user via -u"
 fi
 
-TARBALL_URL="https://github.com/tekumara/setup-ubuntu/tarball/$GIT_SHA"
-echo "Downloading $TARBALL_URL"
-if ! curl --progress-bar --fail -L "$TARBALL_URL" -o "/tmp/setup-ubuntu.tar.gz"; then
+tarball_url="https://github.com/tekumara/setup-ubuntu/tarball/$GIT_SHA"
+echo "Downloading $tarball_url"
+if ! curl --progress-bar --fail -L "$tarball_url" -o "/tmp/setup-ubuntu.tar.gz"; then
     die "Download failed.  Check that the URL is correct."
 fi
 
