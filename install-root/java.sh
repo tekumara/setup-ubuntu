@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-apt-get install -y --no-install-recommends openjdk-11-jre
+apt-get install -y --no-install-recommends openjdk-11-jre-headless
