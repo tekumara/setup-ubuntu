@@ -5,7 +5,7 @@
 Includes:
 
 - docker
-- python 3.8
+- python 3.9
 - java 11
 - node LTS
 - git
