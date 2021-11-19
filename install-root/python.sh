@@ -10,7 +10,7 @@ source /etc/os-release
 echo "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu $VERSION_CODENAME main" >"/etc/apt/sources.list.d/deadsnakes-ubuntu-ppa-$VERSION_CODENAME.list"
 apt-get update
 
-apt-get install -y --no-install-recommends python3.9 python3.9-dev python3.9-venv python3-apt
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3.9 python3.9-dev python3.9-venv python3-apt
 
 # create symlinks in /usr/local/bin which will take precedence on the path
 [[ ! -f /usr/local/bin/python3 ]] && ln -s /usr/bin/python3.9 /usr/local/bin/python3
