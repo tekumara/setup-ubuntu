@@ -6,7 +6,7 @@ if [[ ! -f ~/.zsh_plugins.sh ]] || [[ ~/.zshrc -nt ~/.zsh_plugins.sh ]]; then
     mafredri/zsh-async
     sindresorhus/pure
 
-    zdharma/fast-syntax-highlighting
+    zdharma-continuum/fast-syntax-highlighting
     zsh-users/zsh-autosuggestions
 
     # fixes syntax colouring in tmux/cloud9 by setting TERM=screen-256color
