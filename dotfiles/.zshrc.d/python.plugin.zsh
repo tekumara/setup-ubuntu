@@ -3,9 +3,9 @@ export PIP_REQUIRE_VIRTUALENV=true
 
 # activate virtualenv in .venv/ or venv/
 alias venv='{[[ -d .venv ]] && . .venv/bin/activate} || {[[ -d venv ]] && . venv/bin/activate} || echo "Missing .venv/"'
-# create venv
-alias mkvenv='virtualenv .venv'
+# create venv and activate
+alias mkvenv='virtualenv --clear .venv && . .venv/bin/activate'
 
 # load virtualenvwrapper
-VIRTUALENVWRAPPER_PYTHON=${PIPX_HOME:-$HOME/.local/pipx}/venvs/virtualenvwrapper/bin/python
-source virtualenvwrapper.sh
+VIRTUALENVWRAPPER_PYTHON=$HOME/.local/pipx/venvs/virtualenvwrapper/bin/python
+source "$HOME/.local/bin/virtualenvwrapper.sh"
