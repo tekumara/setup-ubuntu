@@ -22,3 +22,6 @@ apt-get install -y --no-install-recommends \
 
 # install zsh plugin manager (antibody)
 curl -sSfL git.io/antibody | sh -s - -b /usr/local/bin
+
+# set default editor to vim instead of nano
+update-alternatives --set editor /usr/bin/vim.basic

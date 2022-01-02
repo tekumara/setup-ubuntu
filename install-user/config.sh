@@ -4,7 +4,7 @@ set -euo pipefail
 
 set -x
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 ## allow the user running this script to use docker without sudo
 sudo usermod -aG docker "$(whoami)"
@@ -20,5 +20,4 @@ mkdir -p ~/data
 cp -r "$DIR"/../dotfiles/. ~
 
 # run zsh to start antibody for the first time to download plugins
-# its safe to ignore the "(eval):1: can't change option: zle" error
 zsh -c "source ~/.zshrc"
