@@ -7,7 +7,7 @@ set -euo pipefail
 # NB: deb packages are built with --prefix=/usr
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 6A755776
 source /etc/os-release
-echo "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu $VERSION_CODENAME main" >"/etc/apt/sources.list.d/deadsnakes-ubuntu-ppa-$VERSION_CODENAME.list"
+echo "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu $VERSION_CODENAME main" > "/etc/apt/sources.list.d/deadsnakes-ubuntu-ppa-$VERSION_CODENAME.list"
 apt-get update
 
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3.9 python3.9-dev python3.9-venv python3-apt

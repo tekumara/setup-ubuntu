@@ -5,13 +5,12 @@
 Includes:
 
 - docker
-- python 3.9
+- python 3.9 + [pipx](https://github.com/pipxproject/pipx) + [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
 - java 11
 - node LTS
-- git
-- zsh + [dotfiles](dotfiles/) + [antibody](https://github.com/getantibody/antibody) + [fzf](https://github.com/junegunn/fzf) + [zsh-z](https://github.com/agkozak/zsh-z)
+- git with [handy aliases](dotfiles/.zshrc.d/git.plugin.zsh) including file number shortcuts via [scmpuff](https://github.com/mroth/scmpuff#usage)
+- zsh + dotfiles + [fzf](https://github.com/junegunn/fzf) + [zsh-z](https://github.com/agkozak/zsh-z)
 
-Tested on Ubuntu 18.04 and 20.04
 
 ## Prerequisites
 

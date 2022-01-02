@@ -21,6 +21,7 @@ echo "install scmpuff"
 scmpuff_version=0.3.0
 tmp_dir=$(mktemp -d) && pushd "$tmp_dir"
 curl -fsSLo scmpuff.tar.gz "https://github.com/mroth/scmpuff/releases/download/v${scmpuff_version}/scmpuff_${scmpuff_version}_linux_x64.tar.gz"
+echo "59225da0c156d4e1a207f380703b234362f40d9a6fddbd2c8cc671ca7406b405  scmpuff.tar.gz"  | sha256sum --check
 tar -zxf scmpuff.tar.gz
 install scmpuff /usr/local/bin
 popd && rm -rf "$tmp_dir"
