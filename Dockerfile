@@ -42,6 +42,9 @@ RUN sudo /tmp/install-root/node.sh
 COPY install-root/aws.sh /tmp/install-root/
 RUN sudo /tmp/install-root/aws.sh
 
+COPY install-root/ripgrep.sh /tmp/install-root/
+RUN sudo /tmp/install-root/ripgrep.sh
+
 COPY install-user/packages.sh /tmp/install-user/
 RUN /tmp/install-user/packages.sh
 
