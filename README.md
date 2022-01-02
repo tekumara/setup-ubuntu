@@ -11,7 +11,6 @@ Includes:
 - git with [handy aliases](dotfiles/.zshrc.d/git.plugin.zsh) including file number shortcuts via [scmpuff](https://github.com/mroth/scmpuff#usage)
 - zsh + dotfiles + [fzf](https://github.com/junegunn/fzf) + [zsh-z](https://github.com/agkozak/zsh-z)
 
-
 ## Prerequisites
 
 - Ubuntu 18.04 / 20.04
@@ -35,9 +34,10 @@ Or use [setup-ubuntu.yaml](setup-ubuntu.yaml) cloud config as your cloud-init us
 
 ## Development
 
-A [Dockerfile](Dockerfile) is provided to help build the scripts. Each layer is a script and cached to make it easy to iterate on changes.
-[Dockerfile.test](Dockerfile.test) is used to run [install.sh](install.sh) which downloads, extracts and runs all scripts end to end.
+Run `make` to see all options for development, test, and publish.
 
-Run `make` to see options for building and running the Dockerfiles.
+A development docker image is provided to help develop the scripts locally (see [Dockerfile](Dockerfile)).
+
+The installer supports installing as root, or a user using sudo. When installed via cloud-init the installer will be running as root.
 
 When adding ubuntu packages repos follow the [existing pattern](install-root/docker.sh). Do not install software-properties-common and use apt-add-repository. The software-properties-common package installs python3, python3-dbus, and python3-apt which adds python packages to _/usr/lib/python3/dist-packages_. Anything in _/usr/lib/python3/dist-packages_ is added to all python interpreters' PYTHONPATH. This can affect the deadsnakes version of python we install (see [python.sh](install-root/python.sh)).

@@ -1,0 +1,29 @@
+version: "3.8"
+
+# we use network_mode: bridge to use the default network rather than creating a new network
+
+services:
+  # used for testing
+  base:
+    image: setup-ubuntu-base:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    environment:
+      - TERM=xterm-256color
+    volumes:
+      - .:/workdir:ro
+    working_dir: /workdir
+    network_mode: bridge
+
+  # used for development
+  dev:
+    image: setup-ubuntu-dev:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    environment:
+      - TERM=xterm-256color
+    network_mode: bridge

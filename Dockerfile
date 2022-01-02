@@ -1,16 +1,13 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.04 as base
 
 # fetch package lists
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update
 
-# enable installation of man pages & reinstall coreutils so
-# we have manpages for ls etc.
-RUN rm -f /etc/dpkg/dpkg.cfg.d/excludes
-RUN apt-get install --reinstall -y coreutils
+# install curl
+RUN apt-get update && apt-get install -y curl
 
 # setup sudo and ubuntu user with sudo rights and no password
-RUN apt-get install -y sudo
+RUN apt-get install -y --no-install-recommends sudo
 RUN adduser --disabled-password --gecos '' ubuntu && adduser ubuntu sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
@@ -19,6 +16,17 @@ WORKDIR /home/ubuntu
 
 # don't leave the locale as POSIX, otherwise we get the dreaded UnicodeDecodeError
 ENV LANG=C.UTF-8
+
+ENTRYPOINT [ "/bin/bash" ]
+
+# development docker image
+# use this to develop the scripts locally, as opposed to having to work remotely or in a VM.
+# each script creates a new image layer which docker caches; this makes it easy to iterate on changes.
+FROM base as dev
+
+# enable installation of man pages & reinstall coreutils so
+# we have manpages for ls etc.
+RUN sudo rm -f /etc/dpkg/dpkg.cfg.d/excludes && sudo apt-get install --reinstall -y coreutils
 
 # copy and run files one at a time to create individual caching layers
 COPY install-root/system.sh /tmp/install-root/
