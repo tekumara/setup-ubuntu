@@ -3,7 +3,7 @@ FROM ubuntu:20.04 as base
 # fetch package lists
 ENV DEBIAN_FRONTEND noninteractive
 
-# install curl
+# install curl (used by install.sh)
 RUN apt-get update && apt-get install -y curl
 
 # setup sudo and ubuntu user with sudo rights and no password
