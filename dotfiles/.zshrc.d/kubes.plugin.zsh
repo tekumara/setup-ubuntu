@@ -5,8 +5,8 @@
 alias k='kubectl'
 alias kge='kubectl get events --sort-by='{.lastTimestamp}''
 keb() {
-    kubectl exec -i -t "$1" -- /bin/bash
+    kubectl exec -i -t "$@" -- /bin/bash
 }
 kes() {
-    kubectl exec -i -t "$1" -- /bin/sh
+    kubectl exec -i -t "$@" -- /bin/sh
 }
