@@ -53,6 +53,9 @@ RUN sudo /tmp/install-root/aws.sh
 COPY install-root/ripgrep.sh /tmp/install-root/
 RUN sudo /tmp/install-root/ripgrep.sh
 
+COPY install-root/kubes.sh /tmp/install-root/
+RUN sudo /tmp/install-root/kubes.sh
+
 COPY install-user/packages.sh /tmp/install-user/
 RUN /tmp/install-user/packages.sh
 
