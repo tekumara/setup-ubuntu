@@ -29,9 +29,8 @@ popd && rm -rf "$tmp_dir"
 echo "Install kubectx"
 kubectx_version=0.9.4
 tmp_dir=$(mktemp -d) && pushd "$tmp_dir"
-curl -fsSLo kubectx.tar.gz "https://github.com/ahmetb/kubectx/releases/download/v${kubectx_version}/kubectx_v${kubectx_version}_linux_x86_64.tar.gz"
-echo "db5a48e85ff4d8c6fa947e3021e11ba4376f9588dd5fa779a80ed5c18287db22  kubectx.tar.gz"  | sha256sum --check
-tar -zxf kubectx.tar.gz
+curl -fsSLo kubectx "https://github.com/ahmetb/kubectx/releases/download/v${kubectx_version}/kubectx"
+echo "e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900  kubectx"  | sha256sum --check
 install kubectx /usr/local/bin
 popd && rm -rf "$tmp_dir"
 
@@ -39,9 +38,8 @@ popd && rm -rf "$tmp_dir"
 echo "Install kubens"
 kubens_version=0.9.4
 tmp_dir=$(mktemp -d) && pushd "$tmp_dir"
-curl -fsSLo kubens.tar.gz "https://github.com/ahmetb/kubectx/releases/download/v${kubens_version}/kubens_v${kubens_version}_linux_x86_64.tar.gz"
-echo "8b3672961fb15f8b87d5793af8bd3c1cca52c016596fbf57c46ab4ef39265fcd  kubens.tar.gz"  | sha256sum --check
-tar -zxf kubens.tar.gz
+curl -fsSLo kubens "https://github.com/ahmetb/kubectx/releases/download/v${kubens_version}/kubens"
+echo "509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc  kubens"  | sha256sum --check
 install kubens /usr/local/bin
 popd && rm -rf "$tmp_dir"
 
