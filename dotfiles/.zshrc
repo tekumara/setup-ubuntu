@@ -22,6 +22,7 @@ source ~/.zsh_plugins.sh
 source "$HOME/.zshrc.d/git.plugin.zsh"
 source "$HOME/.zshrc.d/python.plugin.zsh"
 source "$HOME/.zshrc.d/kubes.plugin.zsh"
+source "$HOME/.zshrc.d/docker.plugin.zsh"
 
 # add fzf to path, and load fzf completion & keybindings (CTRL-T, CTRL-R)
 source ~/.fzf.zsh
