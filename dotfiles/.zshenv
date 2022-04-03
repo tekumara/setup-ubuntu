@@ -7,3 +7,5 @@ export AWS_PAGER="less -F -X"
 # .local/bin is for pipx installed entrypoints
 export PATH="$PATH:$HOME/.local/bin"
 
+# tell docker build to use buildkit
+export DOCKER_BUILDKIT=1
