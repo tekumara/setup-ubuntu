@@ -11,7 +11,9 @@ apt-get update
 apt-get install -y --no-install-recommends docker-ce docker-ce-cli containerd.io
 
 # docker compose
-v=v2.0.1
+v=v2.4.0
 curl -fsSLo /usr/local/bin/docker-compose "https://github.com/docker/compose/releases/download/$v/docker-compose-linux-x86_64"
-echo "b2aabbc04768efb0dc73c14d105781dd0aceb7a801d3a27d5113ad8e222f0395  /usr/local/bin/docker-compose"  | sha256sum --check
+echo "83527297959403d20a4fd4f00d3db6d9bbbc0cc5704787ec4396cd706a6c8bb4  /usr/local/bin/docker-compose"  | sha256sum --check
 chmod a+x /usr/local/bin/docker-compose
+# integrate into the docker cli as `docker compose`
+ln -s /usr/local/bin/docker-compose /usr/libexec/docker/cli-plugins/docker-compose
