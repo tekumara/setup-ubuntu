@@ -3,6 +3,7 @@
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kubectl/kubectl.plugin.zsh
 # https://github.com/ahmetb/kubectl-aliases
 alias k='kubectl'
+alias kc='kubectx'
 alias kg='kubectl get'
 alias kgp='kubectl get pods'
 alias kgpa='kubectl get pods --all-namespaces'
@@ -12,14 +13,22 @@ alias kgs='kubectl get service'
 alias kgsa='kubectl get service --all-namespaces'
 alias kge='kubectl get events --sort-by='{.lastTimestamp}''
 keb() {
-    kubectl exec -i -t "$@" -- /bin/bash
+  kubectl exec -i -t "$@" -- /bin/bash
 }
 kes() {
-    kubectl exec -i -t "$@" -- /bin/sh
+  kubectl exec -i -t "$@" -- /bin/sh
+}
+krb() {
+  [[ "$#" -ne 2 ]] && echo -e "Usage: $0 podname imagename" >&2 && return 42
+  kubectl run "$1" -it --image="$2" --command -- /bin/bash
+}
+krs() {
+  [[ "$#" -ne 2 ]] && echo -e "Usage: $0 podname imagename" >&2 && return 42
+  kubectl run "$1" -it --image="$2" --command -- /bin/sh
 }
 
 unset KUBECONFIG
-files=($HOME/.kube/*.yaml(N) $HOME/.k3d/kubeconfig*.yaml(N))
+files=($HOME/.k3d/kubeconfig*.yaml(N) $HOME/.kube/*.yaml(N))
 for file in $files; do
   KUBECONFIG+="${KUBECONFIG+:}${file}"
 done
