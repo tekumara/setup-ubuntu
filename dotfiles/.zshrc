@@ -23,7 +23,7 @@ source "$HOME/.zshrc.d/docker.plugin.zsh"
 source "$HOME/.zshrc.d/git.plugin.zsh"
 source "$HOME/.zshrc.d/python.plugin.zsh"
 source "$HOME/.zshrc.d/kubes.plugin.zsh"
-
+source "$HOME/.zshrc.d/ssh.remote.zsh"
 
 # add fzf to path, and load fzf completion & keybindings (CTRL-T, CTRL-R)
 source ~/.fzf.zsh
@@ -33,3 +33,5 @@ FORGIT_FZF_DEFAULT_OPTS="--reverse $FORGIT_FZF_DEFAULT_OPTS"
 
 # load completion system
 _load_compinit
+
+_set_git_user_to_ssh_lc_vars
