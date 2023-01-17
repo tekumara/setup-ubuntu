@@ -6,6 +6,9 @@ set -x
 
 apt-get update
 
+# install latest updates since the source AMI was baked
+apt-get upgrade -y
+
 # gnupg2 is needed to add third party repos
 # automake libtool make build-essential are build tools
 # bsdmainutils contains column
@@ -18,7 +21,7 @@ apt-get install -y --no-install-recommends \
     sysstat net-tools iputils-ping \
     wget curl ca-certificates \
     less vim bsdmainutils jq man-db \
-    zsh unzip
+    zsh unzip htop direnv
 
 # install zsh plugin manager (antibody)
 curl -sSfL git.io/antibody | sh -s - -b /usr/local/bin
