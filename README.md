@@ -5,7 +5,7 @@
 Includes:
 
 - docker
-- python 3.9 + [pipx](https://github.com/pipxproject/pipx) + [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
+- python 3.10 + [pipx](https://github.com/pipxproject/pipx) + [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
 - java 11
 - node LTS
 - git with [handy aliases](dotfiles/.zshrc.d/git.plugin.zsh) including file number shortcuts via [scmpuff](https://github.com/mroth/scmpuff#usage)
@@ -13,7 +13,7 @@ Includes:
 
 ## Prerequisites
 
-- Ubuntu 18.04 / 20.04
+- Ubuntu 22.04
 - Install curl: `sudo apt-get install -y curl`
 
 ## Usage
@@ -21,13 +21,13 @@ Includes:
 Download, extract and run the install scripts:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/qthurier/setup-ubuntu/main/install.sh | bash
 ```
 
 Download and extract the scripts without running them:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/tekumara/setup-ubuntu/main/install.sh | bash -s -- --skip-install
+curl -fsSL https://raw.githubusercontent.com/qthurier/setup-ubuntu/main/install.sh | bash -s -- --skip-install
 ```
 
 Or use [setup-ubuntu.yaml](setup-ubuntu.yaml) cloud config as your cloud-init userdata file.
