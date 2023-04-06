@@ -13,8 +13,8 @@ apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3.9 python3.9-dev python3.9-venv python3-apt
 
 # create symlinks in /usr/local/bin which will take precedence on the path
-[[ ! -f /usr/local/bin/python3 ]] && ln -s /usr/bin/python3.9 /usr/local/bin/python3
-[[ ! -f /usr/local/bin/python ]] && ln -s /usr/bin/python3.9 /usr/local/bin/python
+[[ ! -f /usr/local/bin/python3 ]] && ln -s /usr/bin/python3.10 /usr/local/bin/python3
+[[ ! -f /usr/local/bin/python ]] && ln -s /usr/bin/python3.10 /usr/local/bin/python
 
 # allow apt_pkg to be used by python minor versions other than the python3-apt build version
 [[ ! -f /usr/lib/python3/dist-packages/apt_pkg.so ]] && ln -s /usr/lib/python3/dist-packages/apt_pkg.cpython-*.so /usr/lib/python3/dist-packages/apt_pkg.so
