@@ -16,4 +16,4 @@ curl -fsSLo /usr/local/bin/docker-compose "https://github.com/docker/compose/rel
 echo "83527297959403d20a4fd4f00d3db6d9bbbc0cc5704787ec4396cd706a6c8bb4  /usr/local/bin/docker-compose"  | sha256sum --check
 chmod a+x /usr/local/bin/docker-compose
 # integrate into the docker cli as `docker compose`
-ln -s /usr/local/bin/docker-compose /usr/libexec/docker/cli-plugins/docker-compose
+#ln -s /usr/local/bin/docker-compose /usr/libexec/docker/cli-plugins/docker-compose
