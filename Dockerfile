@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as base
+FROM ubuntu:24.04 as base
 
 # fetch package lists
 ENV DEBIAN_FRONTEND noninteractive

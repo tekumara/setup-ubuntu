@@ -13,7 +13,7 @@ Includes:
 
 ## Prerequisites
 
-- Ubuntu 18.04 / 20.04
+- Ubuntu 22.04 / 24.04
 - Install curl: `sudo apt-get install -y curl`
 
 ## Usage
