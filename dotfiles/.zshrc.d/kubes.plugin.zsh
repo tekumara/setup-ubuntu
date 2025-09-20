@@ -19,6 +19,7 @@ alias kgpa='kubectl get pod --all-namespaces'
 alias kgs='kubectl get service'
 alias kgsa='kubectl get service --all-namespaces'
 alias kge='kubectl get events --sort-by='{.lastTimestamp}''
+alias kl='kubectl logs'
 alias kcomp='type __kubectl_compgen  > /dev/null || source <(kubectl completion zsh)'
 
 keb() {
@@ -28,8 +29,8 @@ kes() {
   kubectl exec -i -t "$@" -- /bin/sh
 }
 krb() {
-  [[ "$#" -ne 2 ]] && echo -e "Usage: $0 podname imagename" >&2 && return 42
-  kubectl run "$1" -it --image="$2" --command -- /bin/bash
+  [[ "$#" -lt 2 ]] && echo -e "Usage: $0 podname imagename [options]" >&2 && return 42
+  kubectl run "$1" -it --image="$2" "$3" --command -- /bin/bash
 }
 krs() {
   [[ "$#" -ne 2 ]] && echo -e "Usage: $0 podname imagename" >&2 && return 42
@@ -37,7 +38,7 @@ krs() {
 }
 
 # unset is needed becuase we are appending values below and
-# it may already have been set by the  parent process (eg: vscode)
+# it may already have been set by the parent process (eg: vscode)
 unset KUBECONFIG
 
 files=($HOME/.kube/*.yaml(N) $HOME/.k3d/kubeconfig*.yaml(N))

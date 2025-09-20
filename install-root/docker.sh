@@ -15,5 +15,6 @@ apt-get update
 
 apt-get install -y --no-install-recommends docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# enable usages of standalone "docker-compose" by linking to the plugin
+# docker compose
+# integrate into the docker cli as `docker compose`
 [[ -f /usr/local/bin/docker-compose ]] || ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin/docker-compose

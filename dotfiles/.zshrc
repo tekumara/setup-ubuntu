@@ -1,10 +1,15 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Generate new ~/.zsh_plugins.sh if it does not exist or ~/.zshrc is newer
 if [[ ! -f ~/.zsh_plugins.sh ]] || [[ ~/.zshrc -nt ~/.zsh_plugins.sh ]]; then
   echo "antibody bundle"
   antibody bundle <<- EOF > ~/.zsh_plugins.sh
-    # pure is a fancy prompt and depends on zsh-async
-    mafredri/zsh-async
-    sindresorhus/pure
+    romkatv/powerlevel10k
 
     zdharma-continuum/fast-syntax-highlighting
     zsh-users/zsh-autosuggestions
@@ -35,3 +40,6 @@ FORGIT_FZF_DEFAULT_OPTS="--reverse $FORGIT_FZF_DEFAULT_OPTS"
 _load_compinit
 
 _set_git_user_to_ssh_lc_vars
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
